@@ -1,0 +1,40 @@
+program vatcalc;
+
+uses
+        crt;
+var
+        a,b,subtotal,vattotal : real;
+
+
+        {yn : string;}
+const
+        vat = 0.175;
+
+begin
+        clrscr;
+
+        writeln;
+        write(' Please enter first amount then press enter:     œ');
+        readln(a);
+
+        writeln;
+        write(' Please enter second amount then press enter:    œ');
+        readln(b);
+
+        subtotal:=a+b;
+        vattotal:=subtotal*vat;
+        writeln;
+        writeln(' œ',a:5:2,' + œ',b:5:2,' = œ',subtotal:5:2,', Plus VAT = œ',vattotal:5:2);
+
+
+        {why dosent this work?!}
+        {write(' Would you like to calculate the VAT on œ',a+b,'? (Y/N) ');
+        read(yn);
+        writeln;
+        if yn=1 then writeln(' œ',a+b,' Plus VAT = ',a+b*vat) else end.;
+        readln(endapp);}
+
+
+        readln;
+
+end.

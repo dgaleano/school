@@ -1,0 +1,38 @@
+program invoice;
+
+uses
+        crt;
+var
+        a,b,yn,endapp : integer;
+        {yn : string;}
+const
+        vat = 0.175;
+
+begin
+        clrscr;
+
+        writeln;
+        write(' Please enter first amount then press enter:     œ');
+        read(a);
+
+        writeln;
+        write(' Please enter second amount then press enter:    œ');
+        read(b);
+
+        writeln;
+        writeln(' œ',a,' + œ',b,' = œ',a+b,', Plus VAT = œ',a+b*vat:5:2);
+        writeln;
+
+        {why dosent this work?!}
+        {write(' Would you like to calculate the VAT on œ',a+b,'? (Y/N) ');
+        read(yn);
+        writeln;
+        if yn=1 then writeln(' œ',a+b,' Plus VAT = ',a+b*vat) else end.;
+        readln(endapp);}
+
+
+        readln(endapp);
+        writeln;
+        writeln(' This program will now end!');
+
+end.

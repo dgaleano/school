@@ -1,0 +1,32 @@
+program ab;
+
+uses
+        crt;
+var
+        a,b : integer;
+        vatopt : char;
+const
+        vat = 0.175;
+
+begin
+        clrscr;
+
+        writeln;
+        write(' Please enter first amount then press enter... œ');
+        read(a);
+
+        writeln;
+        write(' Please enter second amount then press enter... œ');
+        read(b);
+
+        writeln;
+        writeln(' œ',a,' + œ',b, ' = œ',a+b);
+        writeln;
+
+        writeln(' Would you like to calculate the VAT on œ',a+b,'? (Y/N) ');
+        read(vatopt);
+        writeln;
+        if vatopt='y' then
+        writeln(' œ',a+b,' Plus VAT = ',a+b*vat);
+
+end.

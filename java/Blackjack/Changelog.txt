@@ -1,0 +1,56 @@
+=========================
+Blackjack Changelog
+Nick 'r3n' Bolton
+=========================
+
+=========================
+> [B] = Bug fix
+> [N] = New feature
+* [ ] = Semi-Major update
+=========================
+
+=========================
+1.5.2
+> [N] Dealer isn't allowed to stick when score is under 17.
+> [B] When comparing scores, if last player has 21 or current player
+      has 21, then compare scores returns true and dosen't try to
+      evaluate a winning condition, as there already is one.
+
+1.5.0
+> [B] Last feature caused the loop not to break if the user went bust,
+      this is now fixed.
+
+1.4.9
+> [N] If the user gets 21 then they aren't offered another card, and
+      the user automatically sticks.
+
+1.4.8
+> [B] Previously, if the player or the dealer's max score was over 21,
+      both wouldn't be included in the score comparison. Now both max
+	  scores are classed as "safe" seporately, this allows for more
+	  cases; i.e. If the user's max score is greater than the dealer's
+	  min score where the dealer's max score is "unsafe".
+
+1.4.7
+> [N] Now tells user how many games they won at the end of the game.
+
+1.4.6
+> [N] Counts how many games the user played, displays at end.
+> [N] Once game is over, user is now given the option to play again.
+> [N] User can now give up by sticking on their first turn.
+> [N] Tidied layout up a little; spacing should now be perfect.
+
+1.4.2
+> [B] Quit game feature (q or e keys at any prompt) works again.
+* [N] If special trick is achived, game ends instantly.
+* [N] Current player can now achive a five card trick.
+> [B] Dodgy was spelt wrong; thanks to Rebel for pointing this out.
+> [N] Slight pause added if the user goes bust; just gives them some
+      time to figure out what went on.
+
+1.2.3
+> [N] If user goes bust then sticks, dealer dosen't take his turn.
+> [N] Chosen card is shown after the user twists.
+=========================
+
+* Changelog started at version 1.2.1 *

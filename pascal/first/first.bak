@@ -1,0 +1,9 @@
+program first;
+
+begin
+
+        writeIn('This is my first program');
+        writeIn('Programming is fun');
+        readIn;
+
+end.

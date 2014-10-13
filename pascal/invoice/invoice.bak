@@ -1,0 +1,147 @@
+program invoice;
+
+                      { -=-=-=-=-=-=-==-=-=-=-=-=-=-
+                        -=    Invoice Creator     =-
+                        -= Written by Nick Bolton =-
+                        -= Testing by Nick Bolton =-
+                        -=-=-=-=-=-=-==-=-=-=-=-=-=- }
+
+uses
+        crt; {for clrscr}
+var
+        price1, price2, price3, item, subtotal, subvat, total : real;
+        yn, name1, name2, name3 : string;
+        code1, code2, code3 : string[4];
+const
+        vat = 0.175; {vat in œ}
+        shipping = 5.00; {shipping in œ}
+        help = (' Help: Enter 0 for price to exclude. Maximum 3 Items!'); {help on first page}
+        itemspace =  ('                 '); {indents items}
+
+        {invoice item stuff}
+        inv_spacer = ('     '); {space between items}
+        inv_name = (' *Name* '); {used for describing the name}
+        inv_serial1 = (' ('); {left side of serial #}
+        inv_serial2 = (') '); {right side of serial #}
+        inv_price = ('*Price* œ'); {used for describing price}
+
+        {Gather info stuff}
+        gath_serial =   ('Item Serial code:        (4 Digit) #');
+        gath_name =     ('Item Name:                          ');
+        gath_price =    ('Item Price:                        œ');
+
+{title same for each page}
+procedure pageTitle;
+const
+        titleblank =    (' -=-=-=-=-=-=-=-=-=-=- '); {top and bottom of title}
+        titlespace =    ('                           '); {centers title}
+begin
+        clrscr;
+        writeln;
+                textcolor(black);
+        write(titlespace);
+                textbackground(green);
+        write(titleblank);
+        writeln;
+                textbackground(black);
+        write(titlespace);
+                textbackground(green);
+        write(' -= Invoice Creator =- ');
+        writeln;
+                textbackground(black);
+        write(titlespace);
+                textbackground(green);
+        write(titleblank);
+
+                textbackground(black);
+                textcolor(white);
+        writeln;
+end;
+
+{for writing line at top and bottom of invoice}
+procedure invsep;
+begin
+        write(' ------------------------------------------------------------------------------');        write ('');
+        writeln;
+end;
+
+{gathers info from user}
+procedure gatherinfo;
+begin
+        write (itemspace,gath_serial);
+        readln(code1);
+        write (itemspace,gath_name);
+        readln(name1);
+        write (itemspace,gath_price);
+        readln(price1);
+        write ('Would you like to add another item (Y/N)?');
+        readln(yn);
+        if (yn='Y') or (yn='y') or (yn='yes') then
+        gatherinfo;
+end;
+
+begin
+        pageTitle;
+        writeln;
+        writeln(help);
+        writeln;
+
+        gatherinfo;
+
+        {item 1}
+        write (' Item 1:         ',gath_serial);
+        readln(code1);
+        write (itemspace,gath_name);
+        readln(name1);
+        write (itemspace,gath_price);
+        readln(price1);
+        write ('Would you like to add another item (Y/N)?');
+        readln(yn);
+        if (yn='Y') or (yn='y') or (yn='yes') then
+        gatherinfo else
+        createinv;
+
+        {item 2}
+        writeln;
+        writeln;
+        write  (' Item 2:         ',gath_serial);
+        readln(code2);
+        write  (itemspace,gath_name);
+        readln(name2);
+        write  (itemspace,gath_price);
+        readln(price2);
+
+        {item 3}
+        writeln;
+        writeln;
+        write  (' Item 3:         ',gath_serial);
+        readln(code3);
+        write  (itemspace,gath_name);
+        readln(name3);
+        write  (itemspace,gath_price);
+        readln(price3);
+        writeln;
+        writeln(' Press enter now to create your invoice.');
+        readln;
+
+        {invoice page + title}
+        pageTitle;
+        writeln;
+        invsep;
+        {calc code}
+        writeln(inv_name,name1,inv_serial1,code1,inv_serial2,inv_spacer,inv_price,price1:0:2);
+        writeln(inv_name,name2,inv_serial1,code2,inv_serial2,inv_spacer,inv_price,price2:0:2);
+        writeln(inv_name,name3,inv_serial1,code3,inv_serial2,inv_spacer,inv_price,price3:0:2);
+        subtotal:=price1+price2+price3;
+        writeln(' Subtotal:             œ',subtotal:0:2);
+        writeln(' VAT:                  œ',vat:0:3);
+        writeln(' Shipping:             œ',shipping:0:2);
+        writeln;
+        subvat:=subtotal*vat;
+        total:=subtotal+subvat+shipping;
+        writeln(' Total:                œ',total:0:2);
+        invsep;
+        writeln;
+        write(' Press enter to end program.');
+        readln;
+end.

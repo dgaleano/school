@@ -1,0 +1,16 @@
+<?xml?>
+<workspace>
+	<settings>
+		<label>DoctorsSurgery</label>
+	</settings>
+	<users>
+		<user>
+			<path>DoctorsSurgery.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>DoctorsSurgery.jcp</path>
+		</project>
+	</projects>
+</workspace>
